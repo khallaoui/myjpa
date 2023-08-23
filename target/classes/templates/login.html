@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	
+      layout:decorate="~{layouts/_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div layout:fragment="content1">
+<h2>Se connecter</h2>
+
+	<!-- afficher un message si le login ou mot de passe non valides  -->
+	<div class="alert alert-danger" th:if="${param.error}">
+            Invalid username and password.
+    </div>
+    <!--  afficher un message si l'utilisateur se deconnecte -->
+    <div class="alert alert-danger"  th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+	<form th:action="@{/login}" method="post" th:object="${user}">
+		<table>
+		
+		<tr> <td>Login </td> 
+			<td>
+				<input type="text" th:field="*{login}"  />
+				<!-- afficher le message d'erreur au cas ou login ou mot de passe sont incorrects  -->
+				<span th:errors="*{login}"></span>
+			</td>
+		</tr>
+		<tr> 
+			<td>Mot de passe</td> 
+			<td>
+				<input type="password" th:field="*{motDePasse}"  />
+				<span th:errors="*{motDePasse}"></span>
+			</td>
+		</tr>
+
+			<tr><td colspan="2"><input type="submit" id="login" value="Se connecter" class="btn btn-primary" /></td></tr>
+		</table>
+		
+	</form>
+</div>
+</body>
+</html>

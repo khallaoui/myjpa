@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter Une Societe</title>
+</head>
+<body>
+
+
+<body>
+<h2>Ajouter Une Societe</h2>
+<form th:action="@{/PostAddsoci}" method="post" th:object="${societe}">
+		<h3> Les inforamtion de societe</h3>
+
+		<table>
+		<tr> <td>Nom de societe</td> 
+			<td>
+				<input type="text" th:field="*{noms}"  required/>
+				<!-- afficher le message d'erreur au cas ou la contrainte n'est pas respecté  -->
+				<span th:errors="*{noms}"></span>
+			</td>
+		</tr>
+		<tr> <td>Adresse</td> <td>
+				<input type="text" th:field="*{adresse}"  />
+				<span th:errors="*{adresse}"></span>
+			</td>
+		</tr>
+		<tr>
+			 <td>numero de telephone </td> 
+			 <td>
+			 	<input type="text" th:field="*{numtele}"  />
+			 	<!-- le message d'erreur au cas ou la valeur ne respecte pas les contraintes indiquées dans entities -->
+			 	<span th:errors="*{numtele}"></span>
+			 </td>
+		 </tr>	
+		</table>
+		<h3>Choisissez votre identifiant et votre mot de passe</h3>
+		<table>
+		<tr>
+			 <td>login</td> 
+			 <td>
+			 	<input type="text" th:field="*{loginS}"  />
+			 	<span th:errors="*{loginS}"></span></td> </tr>	
+		 <tr>
+		   <td>Mot De Passe</td>
+			 <td>
+			 	<input type="text" th:field="*{motDePasse}"  />
+			<tr><td colspan="2"><input type="submit" value="Ajouter" class="btn btn-primary" /></td></tr>
+			</table>
+	</form>
+	
+</body>
+</html>

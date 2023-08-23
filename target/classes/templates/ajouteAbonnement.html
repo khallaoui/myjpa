@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter Abonnement</title>
+</head>
+<body>
+<h2>Ajouter Abonnement</h2>
+<form th:action="@{/PostAddabn}" method="post" th:object="${abonnement}">
+		<table>
+		
+		<tr> <td>Duree abonnement</td> 
+			<td>
+				<input type="text" th:field="*{Duree}"  />
+				<!-- afficher le message d'erreur au cas ou la contrainte n'est pas respecté  -->
+				<span th:errors="*{Duree}"></span>
+			</td>
+		</tr>
+		<tr> <td>Point Depart</td> <td>
+				<input type="text" th:field="*{Depart}"  />
+				<span th:errors="*{Depart}"></span>
+			</td>
+		</tr>
+		<tr>
+			 <td>Point Arrive</td> 
+			 <td>
+			 	<input type="text" th:field="*{Arrive}"  />
+			 	<!-- le message d'erreur au cas ou la valeur ne respecte pas les contraintes indiquées dans entities -->
+			 	<span th:errors="*{Arrive}"></span>
+			 </td>
+		 </tr>	
+		 <tr>
+			 <td>Capacite</td> 
+			 <td>
+			 	<input type="text" th:field="*{Capacite}"  />
+			 	<!-- le message d'erreur  -->
+			 	<span th:errors="*{Capacite}"></span>
+			 </td>
+		 </tr>	
+		 <tr>
+		  <tr>
+			 <td>Min utilisateurs</td> 
+			 <td>
+			 	<input type="text" th:field="*{MinUtilisateur}"  />
+			 	<!-- le message d'erreur au cas ou la valeur de description ne respecte pas les contraintes indiquées dans entities -->
+			 	<span th:errors="*{MinUtilisateur}"></span>
+			 </td>
+		 </tr>
+		 <tr>
+		  <tr>
+			 <td>Prix en DH</td> 
+			 <td>
+			 	<input type="text" th:field="*{Prix}"  />
+			 	<!-- le message d'erreur au cas ou la valeur de description ne respecte pas les contraintes indiquées dans entities -->
+			 	<span th:errors="*{Prix}"></span>
+			 </td>
+		 </tr>	
+		<tr>
+		<td>Statut </td> 
+ <td>
+    <select th:field="*{statut}">
+   
+        <option value="           " select="selected"></option>
+        <option value="Active" th:text="Active" th:field="*{statut}"></option>
+     
+        <option value="Desactive" th:text="Desactive" th:field="*{statut}"></option>
+  
+    </select >   <span th:errors="*{statut}"></span> </td>
+ </tr>
+			<tr><td colspan="2"><input type="submit" value="Ajouter" class="btn btn-primary" /></td></tr>
+		</table>
+		
+	</form>
+
+</body>
+</html>

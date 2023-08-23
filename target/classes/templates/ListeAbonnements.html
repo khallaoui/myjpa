@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<H2>Liste des abonnements</H2>
+
+<p>	<a th:href="@{/addsoci}">Ajouter Une Societe</a></p>
+	<p><a th:href="@{/addabn}">Ajouter Abonnement</a> </p>
+		
+	
+	
+		<table class="table">
+		<tr><th>#</th> <th>Duree abonnement</th> <th>Point Depart</th><th>Point Arrive</th> <th>Capacite</th> 
+		<th>Min utilisateurs</th><th>Prix en DH</th> <th>Statut </th> </tr>
+		<tr th:each="Abon : ${Abonnements}">
+			<td></td>
+			<td th:text="${Abon.Duree}"></td>
+			<td th:text="${Abon.Depart}"></td>
+			<td th:text="${Abon.Arrive}"></td>
+			<td th:text="${Abon.Capacite}"></td>
+			<td th:text="${Abon.MinUtilisateur}"></td>
+			<td th:text="${Abon.prix}"></td>
+			<td th:text="${Abon.statut}"></td>
+			<td ><a>Modifier </a> 
+			<a th:href="@{deleteabn/{id}(id=${Abon.id})}">Supprimer</a> 
+			</td>
+		
+		</tr>
+		</table>
+
+</body>
+</html>
